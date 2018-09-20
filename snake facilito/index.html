@@ -2,10 +2,23 @@
 <!-- codepen.io/urlielhdz/pen/yJMqMx?editors=0010-->
 <html>
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.1">
 		<title></title>
 		<style>			
 			canvas{border:solid;}
 			body{text-align:center;}			
+			.button {
+				background-color: #555555; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 5px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				border-radius: 12px;
+				width: 80px;
+			}
 		</style>
 	</head>
 	<body>
@@ -17,12 +30,12 @@
 		<canvas id="canvas_snake" width="500" height="300"></canvas>
 		<div style="text-align:center">
 			<br/><br/>
-			<input type="button" value="Up" id="u" />
+			<input type="button" value="Up" id="u" class="button" />
 			<br/><br/>
-			<input type="button" value="Left" id="l" /> &nbsp &nbsp &nbsp
-			<input type="button" value="Right" id="r"/>
+			<input type="button" value="Left" id="l" class="button" /> &nbsp &nbsp &nbsp
+			<input type="button" value="Right" id="r" class="button" />
 			<br/><br/>
-			<input type="button" value="Down" id="d" />
+			<input type="button" value="Down" id="d" class="button" />
 		</div>
 		<script src="game-dist.js"></script>
 		<script src="game.js"></script>
