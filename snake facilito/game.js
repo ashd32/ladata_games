@@ -21,7 +21,7 @@
 		}
 		
 		static generate(){
-			return new Food(Random.get(0,500), Random.get(0,300))
+			return new Food(Random.get(0,350), Random.get(0,300))
 		}
 	}
 	
@@ -101,7 +101,7 @@
 		}
 		
 		hitBorder(){
-			return (this.x > 490 || this.x < 0 || this.y > 290 || this.y < 0)
+			return (this.x > 340 || this.x < 0 || this.y > 290 || this.y < 0)
 		}
 	}
 	
