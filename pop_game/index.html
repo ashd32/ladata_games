@@ -11,12 +11,15 @@ body { margin: 0; padding: 0; background: #000;}
 canvas { display: block; margin: 0 auto; background: #fff; }
 </style>
 
+
+
 </head>
 
 <body>
 <canvas></canvas>
 <script>
-
+var contando = 0;
+var barrera = 10;
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){
@@ -44,7 +47,7 @@ var POP = {
     entities: [],
     // the amount of game ticks until
     // we spawn a bubble
-    nextBubble: 100,
+    nextBubble: 10,
     // for tracking player's progress
     score: {
         taps: 0,
@@ -105,7 +108,7 @@ var POP = {
         window.addEventListener('click', function(e) {
             e.preventDefault();
             POP.Input.set(e);
-        }, false);
+        }, {passive: false});
 
         // listen for touches
         window.addEventListener('touchstart', function(e) {
@@ -114,18 +117,18 @@ var POP = {
             // called touches, we just want
             // the first touch
             POP.Input.set(e.touches[0]);
-        }, false);
+        }, {passive: false});
         window.addEventListener('touchmove', function(e) {
             // we're not interested in this
             // but prevent default behaviour
             // so the screen doesn't scroll
             // or zoom
             e.preventDefault();
-        }, false);
+        }, {passive: false});
         window.addEventListener('touchend', function(e) {
             // as above
             e.preventDefault();
-        }, false);
+        }, {passive: false});
 
         // we're ready to resize
         POP.resize();
@@ -176,8 +179,7 @@ var POP = {
     update: function() {
         var i,
             checkCollision = false; // we only need to check for a collision
-                                // if the user tapped on this game tick
- 
+                                // if the user tapped on this game tick		
 
         // decrease our nextBubble counter
         POP.nextBubble -= 1;
@@ -186,7 +188,7 @@ var POP = {
             // put a new instance of bubble into our entities array
             POP.entities.push(new POP.Bubble());
             // reset the counter with a random value
-            POP.nextBubble = ( Math.random() * 100 ) + 100;
+            POP.nextBubble = ( Math.random() * (40 - contando) ) + 40 - contando;
         }
 
         // spawn a new instance of Touch
@@ -223,6 +225,10 @@ var POP = {
                         )); 
                     }
                     POP.score.hit += 1;
+					if(POP.score.hit > barrera){
+						contando = contando + 3;
+						barrera = barrera +10;
+					}
                 }
 
                 POP.entities[i].remove = hit;
@@ -388,9 +394,10 @@ POP.Bubble = function() {
 
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
-    this.speed = (Math.random() * 3) + 1;
+    this.speed = (Math.random() * 4) + 1;
  
-    this.x = (Math.random() * (POP.WIDTH) - this.r);
+	// Agregue -90 (izq) y +20 (der) para que entre en la visibilidad
+    this.x = (Math.random() * (POP.WIDTH-90) - this.r) + 20;
     this.y = POP.HEIGHT + (Math.random() * 100) + 100;
 
     // the amount by which the bubble
@@ -416,6 +423,10 @@ POP.Bubble = function() {
         if (this.y < -10) {
             POP.score.escaped += 1; // update score
             this.remove = true;
+			if (POP.score.escaped >10) {
+				alert ("Perdiste, escaparon más de 10. \nAcc: "+POP.score.accuracy+"\nHits: "+POP.score.hit+"\nTaps: "+POP.score.taps);
+				location.reload();
+			}
         }
 
     };
