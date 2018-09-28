@@ -19,7 +19,16 @@ canvas { display: block; margin: 0 auto; background: #fff; }
 <canvas></canvas>
 <script>
 var contando = 0;
+var aumento = 1;
 var barrera = 10;
+var recover = new Audio('recover.mp3');
+var brickDeath = new Audio('brickDeath.mp3');
+var powerdown = new Audio('powerdown.mp3');
+var viento = new Audio('viento.mp3');
+
+
+
+
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){
@@ -30,6 +39,7 @@ window.requestAnimFrame = (function(){
           window.msRequestAnimationFrame     || 
           function( callback ){
             window.setTimeout(callback, 1000 / 60);
+			viento.play();
           };
 })();
 
@@ -67,7 +77,7 @@ var POP = {
     ios:  null,
 
     init: function() {
-   
+
         // the proportion of width to height
         POP.RATIO = POP.WIDTH / POP.HEIGHT;
         // these will change when the screen is resize
@@ -225,9 +235,14 @@ var POP = {
                         )); 
                     }
                     POP.score.hit += 1;
+					brickDeath.play();
 					if(POP.score.hit > barrera){
 						contando = contando + 3;
+						aumento = aumento + 1;
+						contando = (Math.random()*contando)+aumento
 						barrera = barrera +10;
+						if(POP.score.escaped >0) POP.score.escaped -= 1;
+						recover.play();
 					}
                 }
 
@@ -422,6 +437,7 @@ POP.Bubble = function() {
         // if offscreen flag for removal
         if (this.y < -10) {
             POP.score.escaped += 1; // update score
+			powerdown.play();
             this.remove = true;
 			if (POP.score.escaped >10) {
 				alert ("Perdiste, escaparon más de 10. \nAcc: "+POP.score.accuracy+"\nHits: "+POP.score.hit+"\nTaps: "+POP.score.taps);
