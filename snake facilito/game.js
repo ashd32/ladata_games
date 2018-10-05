@@ -147,7 +147,7 @@
 	
 		eat(){			
 			this.head.add()
-			if( segundos=0 ) { segundos = 1 }
+			if( segundos==0 ) { segundos = 1 }
 			puntos = puntos + (1/segundos)
 			console.log("Puntos: "+puntos)
 			console.log("Segundos: "+segundos)
@@ -208,7 +208,7 @@
 			window.clearInterval(animacion)
 		}
 		
-	}, 1000 / 15) //ejecutar la funcion segun milisegundos / fotogramas
+	}, 1000 / 13) //ejecutar la funcion segun milisegundos / fotogramas
 	
 	setInterval(function(){
 		segundos = segundos + 1
@@ -223,7 +223,7 @@
 			removeFromFoods(food)
 		},10000)
 	
-	}, 4000)
+	}, 3000)
 	
 	
 	function drawFood(){
