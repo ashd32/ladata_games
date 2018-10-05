@@ -1,3 +1,4 @@
+var lines = 0;
 var COLS = 10, ROWS = 20;
 var board = [];
 var lose;
@@ -120,6 +121,7 @@ function clearLines() {
             for ( var yy = y; yy > 0; --yy ) {
                 for ( var x = 0; x < COLS; ++x ) {
                     board[ yy ][ x ] = board[ yy - 1 ][ x ];
+					++lines;
                 }
             }
             ++y;
@@ -179,6 +181,7 @@ function valid( offsetX, offsetY, newCurrent ) {
                     if (offsetY == 1 && freezed) {
                         lose = true; // lose if the current shape is settled at the top most row
                         document.getElementById('playbutton').disabled = false;
+						document.getElementById("playbutton").style.display = "block";
                     } 
                     return false;
                 }
@@ -190,7 +193,9 @@ function valid( offsetX, offsetY, newCurrent ) {
 
 function playButtonClicked() {
     newGame();
-    document.getElementById("playbutton").disabled = true;
+    document.getElementById("playbutton").disabled = true;	
+	document.getElementById("playbutton").style.display = "none";
+
 }
 
 function newGame() {

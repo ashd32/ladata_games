@@ -147,6 +147,7 @@
 	
 		eat(){			
 			this.head.add()
+			if( segundos=0 ) { segundos = 1 }
 			puntos = puntos + (1/segundos)
 			console.log("Puntos: "+puntos)
 			console.log("Segundos: "+segundos)
@@ -207,7 +208,7 @@
 			window.clearInterval(animacion)
 		}
 		
-	}, 1000 / 18) //ejecutar la funcion segun milisegundos / fotogramas
+	}, 1000 / 15) //ejecutar la funcion segun milisegundos / fotogramas
 	
 	setInterval(function(){
 		segundos = segundos + 1
@@ -267,6 +268,10 @@
 			}
 		}
 		return hit;	
+	}
+	
+	function roundToTwo(num) {    
+		return +(Math.round(num + "e+4")  + "e-4");
 	}
 	
 	

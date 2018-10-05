@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no" />
         <title>HTML5 Tetris</title>
         <link rel='stylesheet' href='style.css' />
+		<style>			
+			.button {
+				background-color: #555555; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 5px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				border-radius: 12px;
+				width: 80px;
+			}
+			.responsive {
+				width: 100%;
+				height: auto;
+			}
+		</style>
     </head>
-    <body>
+    <body class="responsive">
         <audio id="clearsound" src="sound/pop.ogg" preload="auto"></audio>
-        <canvas width='300' height='600'></canvas>
+        <canvas width='300' height='600' style="height:70vh"></canvas>
         <button id="playbutton" onclick="playButtonClicked();">Play</button>
+		
+		<div style="text-align:center; height=20vh">			
+			<input type="button" value="Up" id="u" class="button" />
+			<br/>
+			<input type="button" value="Left" id="l" class="button" /> &nbsp &nbsp &nbsp
+			<input type="button" value="Right" id="r" class="button" />
+			<br/>
+			<input type="button" value="Down" id="d" class="button" />
+		</div>
+		
         <script src='js/tetris.js'></script>
         <script src='js/controller.js'></script>
         <script src='js/render.js'></script>
