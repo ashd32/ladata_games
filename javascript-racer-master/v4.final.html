@@ -5,6 +5,20 @@
   <title>Javascript Racer - v4 (final)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <link href="common.css" rel="stylesheet" type="text/css" />
+  <style>
+		.button {
+			background-color: #555555; /* Green */
+			border: none;
+			color: white;
+			padding: 15px 5px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 12px;
+			width: 80px;
+		}
+	</style>
 </head> 
 
 <body> 
@@ -79,6 +93,15 @@
     </canvas>
     Loading...
   </div>
+	<div style="text-align:center">
+		
+		<input type="button" value="Up" id="u" class="button" />
+		<br/>
+		<input type="button" value="Left" id="l" class="button" /> &nbsp &nbsp &nbsp
+		<input type="button" value="Right" id="r" class="button" />
+		<br/>
+		<input type="button" value="Down" id="d" class="button" />
+	</div>
 
   <audio id='music'>
     <source src="music/racer.ogg">
