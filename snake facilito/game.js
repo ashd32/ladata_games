@@ -204,8 +204,9 @@
 		drawFood()
 		
 		if(snake.dead()){
-			alert('Perdiste. Puntaje: '+ puntos.toString() );
+			alert('Perdiste. Puntaje: '+ puntos.toString() + '\nReiniciando el juego...');
 			window.clearInterval(animacion)
+			location.reload();
 		}
 		
 	}, 1000 / 13) //ejecutar la funcion segun milisegundos / fotogramas
