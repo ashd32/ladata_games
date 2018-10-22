@@ -7,7 +7,8 @@ canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
 	width: 90%;
-	max-height: 500px;
+	max-height: 450px;
+	max-width: 450px;
 }
 .button {
 	background-color: #555555; /* Green */
@@ -114,8 +115,13 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
+			alert("SCORE: " + myGameArea.frameNo);
+            location.reload();
         } 
+			if(myGamePiece.y < 0 || myGamePiece.y >= 450){
+			alert("SCORE: " + myGameArea.frameNo);
+			location.reload();
+		}
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
@@ -138,6 +144,7 @@ function updateGameArea() {
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
+
 }
 
 function everyinterval(n) {
