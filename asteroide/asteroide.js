@@ -1,5 +1,27 @@
 //pool.js ...........................................................
 
+
+var isMobile = {
+	Android: function() {
+		return navigator.userAgent.match(/Android/i);
+	},
+	BlackBerry: function() {
+		return navigator.userAgent.match(/BlackBerry/i);
+	},
+	iOS: function() {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: function() {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: function() {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: function() {
+		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+	}
+};
+
 var Pool = (function()
 {
 	//exposed methods:
@@ -427,6 +449,20 @@ window.onload = function()
 	shipInit();
 
 	loop();
+	
+	if (isMobile.any()) {
+		keySpace = true;
+	}
+	
+	//document.getElementById("d").addEventListener("click", function(){return snake.down()});		
+	//document.getElementById("u").addEventListener("onmousedown", function(){
+	//	ship.thrust.setLength(0.1);
+	//	ship.thrust.setAngle(ship.angle);
+	//	generateThrustParticle();
+	//	});		
+	//document.getElementById("l").addEventListener("onmousedown", function(){ship.angle -= 0.1;});		
+	//document.getElementById("r").addEventListener("onmousedown", function(){ship.angle += 0.1;});	
+
 };
 
 window.onresize = function()
@@ -442,8 +478,45 @@ window.onresize = function()
 	hScan = (screenHeight / 4) >> 0;
 };
 
+function move(nro){
+	console.log(nro);
+	if(nro > 0){
+		//ship.thrust.setLength(0.1);
+		//ship.thrust.setAngle(ship.angle);
+		//generateThrustParticle();
+		keyUp = true;
+	}
+	else{
+		//ship.vel.mul(0.94);
+		//ship.thrust.setLength(0);
+		keyUp = false;
+	}
+	//e.preventDefault();
+}
+
+function right(nro){
+	console.log(nro);
+	//ship.angle += 0.1;
+	if(nro > 0){
+		keyRight = true;
+	}
+	else{
+		keyRight = false;
+	}
+}
+function left(nro){
+	console.log(nro);
+	//ship.angle -= 0.1;
+	if(nro > 0){
+		keyLeft = true;
+	}
+	else{
+		keyLeft = false;
+	}
+}
+
 function keyboardInit()
-{
+{	
 	window.onkeydown = function(e)
 	{
 		switch(e.keyCode)

