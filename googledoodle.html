@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		<title>LaData Games</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" contente="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" contente="LaData Games es un sitio de juegos." />
+		<meta name="author" contente="ibarrau">
+		<link rel="icon" href="images/a.png" type="image/x-icon"> 
+		<link rel="stylesheet" href="assets/css/main.css" />		
+		<link rel="stylesheet" href="assets/css/slideshow.css" />		
+		<link rel="stylesheet" href="assets/css/animated.css" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120636676-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-120636676-1');
+		</script>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		  (adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-9703603303861980",
+			enable_page_level_ads: true
+		  });
+		</script>
+		<style>
+		.collapsible {
+		  background-color: #d5d5d5;
+		  color: white;
+		  cursor: pointer;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		  vertical-align: middle;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #555;
+		  vertical-align: middle;
+		}
+		
+
+		.collapsible:after {
+		  contente: '\002B';
+		  color: white;
+		  font-weight: bold;
+		  float: right;
+		  vertical-align: middle;
+		  margin-left: 5px;
+		}
+
+		.active:after {
+		  contente: "\2212";
+		  vertical-align: middle;
+		}
+
+		.contente {
+		  text-align:center;
+		  padding: 0 18px;
+		  max-height: 0;
+		  overflow: hidden;
+		  transition: max-height 0.2s ease-out;
+		  background-color: #d5d5d5;
+		  vertical-align: middle;
+		}
+		</style>
+		
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo animated zoomIn"><img style="float:left; padding: 0.3em 0 0.1em 0;" width="30%" src="images/ladata-transp.png" alt="LaData logo" /></a>
+					<nav id="nav" class="animated fadeInRight">
+						<a href="http://www.ladataweb.com.ar" class="face" >LaData Web</a>
+						<!--<a href="informes.html" class="face">Informes</a>
+						<a href="origenes.html" class="face">Orígenes de datos</a>
+						<a href="contacto.html" class="face">¿Quien Soy? Contacto</a>-->
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			
+			<section id="main">
+				<div class="inner">
+					<header class="major special">
+						<h1>Google Doodle Games</h1>
+					</header>
+				</div>
+			</section>
+		<section>				
+			
+
+
+			<button class="collapsible">Caballo Mensajero</button>
+			<div class="contente">
+			  <iframe src="https://www.google.com/logos/2015/ponyexpress/ponyexpress15.html?hl=en" frameborder="0" height="504px" width="900px" scrolling="no"></iframe>
+			</div>
+			<button class="collapsible">Día de San Valentín</button>
+			<div class="contente">
+			  <iframe src="https://www.google.com/logos/2017/vday17/vday17-27917071.html?hl=en" frameborder="0" height="304px" width="900px" scrolling="no"></iframe>
+			</div>
+			<button class="collapsible">Basketball</button>
+			<div class="contente">
+			  <iframe src="https://www.google.com/logos/2012/basketball-2012-hp.html?hl=en" frameborder="0" height="304px" width="900px" scrolling="no"></iframe>
+			</div>
+			<button class="collapsible">DJ hip hop</button>
+			<div class="contente">
+			  <iframe src="https://www.google.com/logos/2017/hiphop/hiphop17.html?hl=en" frameborder="0" height="304px" width="900px" scrolling="no"></iframe>
+			</div>
+			<button class="collapsible">Mago Gato</button>
+			<div class="contente">
+				<iframe src="https://www.google.com/logos/2016/halloween16/halloween16.html?hl=en" frameborder="0" height="304px" width="900px" scrolling="no"></iframe>
+			</div>
+			
+			<br>
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="row">
+						<div class="4u 12u$(xsmall)">
+							<a href="breakout/index.html" class="logo animated zoomIn"><img src="images/ladatatrucho.png" style="width:40%" ></a>
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<div class="copyright">
+								<br/>&copy; LaData all rights reserved. <br/>Respetar copyright y no scrappear sin permiso.
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+			<script>
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+
+			for (i = 0; i < coll.length; i++) {
+			  coll[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var contente = this.nextElementSibling;
+				if (contente.style.maxHeight){
+				  contente.style.maxHeight = null;
+				} else {
+				  contente.style.maxHeight = contente.scrollHeight + "px";
+				} 
+			  });
+			}
+			</script>
+
+</body>
+</html>
+
+
+
