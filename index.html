@@ -26,6 +26,50 @@
 			enable_page_level_ads: true
 		  });
 		</script>
+		
+		<style>
+		.collapsible {
+		  background-color: #FF8C00;
+		  color: white;
+		  cursor: pointer;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		  vertical-align: middle;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #555;
+		  vertical-align: middle;
+		}
+		
+
+		.collapsible:after {
+		  contente: '\002B';
+		  color: white;
+		  font-weight: bold;
+		  float: right;
+		  vertical-align: middle;
+		  margin-left: 5px;
+		}
+
+		.active:after {
+		  contente: "\2212";
+		  vertical-align: middle;
+		}
+
+		.contente {
+		  text-align:center;
+		  padding: 0 18px;
+		  max-height: 0;
+		  overflow: hidden;
+		  transition: max-height 0.2s ease-out;
+		  background-color: #e6e7e7;
+		  vertical-align: middle;
+		}
+		</style>
 	</head>
 	<body>
 
@@ -70,9 +114,45 @@
 		<!-- Two -->
 			<section id="two">
 			<div style="text-align:center;">Para pausar un juego en un dispositivo movil presione "HOME" en su telefono para volver a la pantalla de inicio y el estado quedará guardado cuando vuelva."
-			</div><br> 
-			
-				<div class="inner">
+			</div><br> 			
+					<button class="collapsible">Funcionales: </button>
+					<div class="contente">
+						<a href="breakouts-master/breakouts/frozen/index.html">Breakouts (Con version Móvil)</a>
+						<br><a href="canvas-tetris-master/index.html">Tetris (Con version Móvil)</a>
+						<br><a href="pacman-canvas-master/index.html">Pacman-canvas (Con version Móvil)</a>
+						<br><a href="javascript-breakout-master/index.html">Jsbreakouts</a>
+						<br><a href="javascript-racer-master/index.html">Racer (PC Version 4 FINAL)</a>
+						<br><a href="snake facilito/index.html">Snake (Con version Móvil)</a>
+						<br><a href="pop_game/index.html">Pop game (Con version Móvil)</a>
+						<br><a href="w3school/pajarito.html">Cuadradito (Con version Móvil)</a>
+					</div><br>
+				
+					<button class="collapsible">Beta:</button>
+					<div class="contente">
+						<a href="html5-asteroids-master/index.html">Asteroids (PC)</a>
+						<br><a href="DxBall-master/game.html">DxBall (PC)</a>
+						<br><a href="asteroide/index.html">asteroide (Con version Móvil)</a>
+						<br><a href="gbjam5-master/index.html">gbjam5 (PC)</a>
+					</div><br>
+					
+					<button class="collapsible">Con errores:</button>
+					<div class="contente">
+						<a href="HexGL-master/index.html">HexGL-master</a>
+						<br><a href="w3school/pared.html">pared</a>
+						<br>
+					</div><br>
+					
+					<button class="collapsible">Doodle Games (Online)</button>
+					<div class="contente">
+						<a href="googledoodles/basket.html">Basketball</a>
+						<br><a href="googledoodles/caballomensajero.html">Caballo Mensajero Mobile)</a>
+						<br><a href="googledoodles/dj.html">HipHop DJ</a>
+						<br><a href="googledoodles/magogato.html">Mago Gato (Mobile)</a>
+						<br><a href="googledoodles/valentin.html">San Valentín</a>
+					</div><br>
+					
+					
+				<!--<div class="inner">					
 					<article>
 						<div class="content">
 							<h2>Funcionales:</h2>
@@ -102,7 +182,7 @@
 					</article>
 				</div>
 			</section>
-
+			-->
 
 		<!-- Footer -->
 			<section id="footer">
@@ -120,6 +200,22 @@
 				</div>
 			</section>
 
+			<script>
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+
+			for (i = 0; i < coll.length; i++) {
+			  coll[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var contente = this.nextElementSibling;
+				if (contente.style.maxHeight){
+				  contente.style.maxHeight = null;
+				} else {
+				  contente.style.maxHeight = contente.scrollHeight + "px";
+				} 
+			  });
+			}
+			</script>
 			<style>
 				.face:hover {
 				  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
